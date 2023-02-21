@@ -1,47 +1,374 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+<div class="navbar-container" >
+    <div class="navbar1 shadow p-3">
+        <div class="navbar-inner">
+            <div id="home-section" class="navbar-sections">
+                <a href="/" >
+                    <div><img id="home-image" src="/images/home.svg" alt="home" class="navbar-item-image" href="/home"></div>
+                    <p id="home-text" class="footer-text">Home</p>
+                </a>
+            </div>
+            <div id="transaction-section" class="navbar-sections">
+                <a href="/transactions">
+                    <div><img id="transactions_image" src="/images/transactions_gray.svg" alt="home" class="navbar-item-image" href="/transactions"></div>
+                    <p class="footer-text">Transactions</p>
+                </a>
+            </div>
+            <div id="stats-section" class="navbar-sections">
+                <a href="/dashboard">
+                    <div><img id="dashboard_image" src="/images/stats.svg" alt="home" class="navbar-item-image" href="/dashboard"></div>
+                    <p class="footer-text">Stats</p>
+                </a>
+            </div>
+        </div>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+</div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+*{
+    font-family: 'DM Sans', sans-serif;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+body {
+    background-color: #fafafa !important;
+
 }
 
-@media (min-width: 1024px) {
-  header {
+
+/* HEADER WHERE TITLE AND ICONS ARE */
+.header {
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 40px;
+}
+
+h4 {
+    color: #404040 !important;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.amount_style {
+    text-align: right;
+}
+
+.list-group p {
+    color: #7c7c7c !important;
+}
+
+.go-back-button {
+    padding-top: 32px;
+    padding-left: 32px;
+}
+
+
+/* TRANSACTION LIST VIEW */
+.list-group {
+    margin-bottom: 0 !important;
+    border-width: 0px;
+    padding-right: 32px !important;
+    padding-left: 16px !important;
+}
+
+.date-grouper {
+    padding-left: 32px;
+}
+
+.transaction_image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #5350F6;
+}
+
+.card-text-style {
+    text-align: right;
+}
+
+.list_group_item_styles {
+    background-color: #fafafa !important;
+    border: none !important;
+}
+
+.transaction-card {
+    border-bottom: 0px solid #EBEBEB !important;
+}
+
+.card-title {
+    color: #4C4C4C !important;
+}
+
+/* ADD FLOATING BUTTON */
+.float{
+	position:fixed;
+	width:50px;
+	height:50px;
+	bottom:120px;
+	right:32px;
+	background-color:#5350F6    ;
+	color:#FFF;
+	border-radius:50%;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.add{
+    height: 100%;
+    padding: 20%;
+}
+
+/* NAVIGATION BAR */
+.navbar-container {
+    align-items: center;
+    display:flex;
+    justify-content:center;
+    transition: top 0.3s; 
+
+}
+
+.navbar1 {
+    overflow: hidden;
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 24px;
+    height: 65px;
+    width: 320px;
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+    align-items: center;
+    justify-content: center;
+    padding-left: 32px;
+    padding-right: 32px;
+    border-radius: 30px;
 }
+
+.navbar1 .navbar-sections  {
+    color: black;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.navbar-sections {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.navbar-sections a p {
+    padding-top: 5px;
+    color: #7c7c7c;
+    
+}
+
+.active-navbar-sections  {
+    color: black;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.active-navbar-sections a p {
+    padding-top: 5px;
+    color: #7c7c7c;
+    
+}
+
+.active-navbar-sections a p {
+    color: #5350F6;
+}
+
+.navbar-item-image {
+    width: 22.68px;
+    padding-top: 11px;
+}
+
+
+/* MODAL */
+.modal-content {
+    background-color: #fafafa !important;
+    border-radius: 10px !important;
+
+}
+
+.modal-dialog {
+    top: 30%;
+
+}
+
+.modal-botton-primary {
+    background-color: #5350F7 !important;
+    border-radius: 7px;
+    width: 149px;
+    height: 52px;
+}
+
+.modal-botton-secondary {
+    border-radius: 7px;
+    width: 149px;
+    height: 52px;
+}
+
+.form-group  input {
+    height: 46px;
+    background-color: #ffffff !important;
+    border: 1px solid #E5E5E5;
+    box-sizing: border-box;
+    border-radius: 7px;
+    box-shadow: 0px 0px 0px rgba(186, 186, 186, 0.15);
+}
+
+.form-group  input:focus {
+    border-color: #5350F7;
+    box-shadow: 0px 0px 0px rgba(186, 186, 186, 0.15);
+
+}
+
+.form-group  select {
+    height: 46px;
+    background-color: #ffffff !important;
+    border: 1px solid #E5E5E5;
+    box-sizing: border-box;
+    border-radius: 7px;
+    box-shadow: 0px 0px 0px rgba(186, 186, 186, 0.15);
+}
+
+.form-group  select:focus {
+    border-color: #5350F7;
+    box-shadow: 0px 0px 0px rgba(186, 186, 186, 0.15);
+
+}
+
+/* EDIT FORM CONTAINER   */
+.edit-form-container {
+    padding: 32px;
+}
+
+.delete-button-style {
+    background-color: #F95151 !important;
+    border-radius: 7px;
+    width: 149px;
+}
+
+.delete-button-style p {
+    padding-top: 7px ;
+}
+
+
+.update-button-style {
+    background-color: #5350F7 !important;
+    border-radius: 7px;
+    width: 149px;
+    height: 52px;
+}
+
+/* MONTHLY CARD CONTAINER */
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.box .box-content {
+    width: 100px;
+    height: 100px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 5px rgba(186, 186, 186, 0.15);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.monthly-balance {
+    padding-left: 16px;
+}
+
+.monthly-balance-currency {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 29px;
+    color: #5350F7;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.monthly-balance-value {
+    font-style: normal;
+    font-weight: medium;
+    font-size: 22px;
+    line-height: 29px;
+    color: #4C4C4C;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.monthly-balance-text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #D3D5DF;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.progress-conatiner {
+    padding: 16px;
+}
+
+.progress {
+    height: 6px !important;
+}
+
+.progress-bar {
+    background-color: #5350F7 !important;
+}
+
+.month-picker-container {
+    padding-left: 32px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    
+}
+
+.month-picker-container h2{
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+    color: #7C7C7C;
+}
+
+.categories_header_home {
+    padding-left: 32px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    
+}
+.categories_header_home h2{
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    color: #7C7C7C;
+}
+
+
 </style>
