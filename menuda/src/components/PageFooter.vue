@@ -1,12 +1,32 @@
-<script setup lang="ts">
-import PageFooter from './components/PageFooter.vue'
-
+<script lang="ts" setup>
 </script>
 
 <template>
-    <PageFooter />
-</template>
-
+    <div class="navbar-container" >
+        <div class="navbar1 shadow p-3">
+            <div class="navbar-inner">
+                <div id="home-section" class="navbar-sections">
+                    <a href="/" >
+                        <div><img id="home-image" src="/images/home.svg" alt="home" class="navbar-item-image" href="/home"></div>
+                        <p id="home-text" class="footer-text">Home</p>
+                    </a>
+                </div>
+                <div id="transaction-section" class="navbar-sections">
+                    <a href="/transactions">
+                        <div><img id="transactions_image" src="/images/transactions_gray.svg" alt="home" class="navbar-item-image" href="/transactions"></div>
+                        <p class="footer-text">Transactions</p>
+                    </a>
+                </div>
+                <div id="stats-section" class="navbar-sections">
+                    <a href="/dashboard">
+                        <div><img id="dashboard_image" src="/images/stats.svg" alt="home" class="navbar-item-image" href="/dashboard"></div>
+                        <p class="footer-text">Stats</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </template>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
